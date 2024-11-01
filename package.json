@@ -2,8 +2,7 @@
 	"name": "pixi-actions",
 	"version": "1.2.4",
 	"description": "An Actions system for easy chainable animations of DisplayObjects.",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
+	"main": "src/index.ts",
 	"scripts": {
 		"build": "tsc --build",
 		"clean": "tsc --build --clean"
