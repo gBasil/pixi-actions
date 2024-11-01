@@ -5,7 +5,10 @@ import Interpolation from './Interpolation';
 import Interpolations from './Interpolations';
 
 import MoveTo from './actions/MoveTo';
+import MoveToRounded from './actions/MoveToRounded';
+import MoveToY from './actions/MoveToY';
 import ScaleTo from './actions/ScaleTo';
+import ResizeFromCenterTo from './actions/ResizeFromCenterTo';
 import RotateTo from './actions/RotateTo';
 import Sequence from './actions/Sequence';
 import Parallel from './actions/Parallel';
@@ -29,6 +32,27 @@ export default class Actions {
 		interpolation: Interpolation = Interpolations.pow2out
 	): Action {
 		return new MoveTo(target, x, y, seconds, interpolation);
+	}
+
+	/** Like `.moveTo()`, but rounds pixel positions. */
+	static moveToRounded(
+		target: Target,
+		x: number,
+		y: number,
+		seconds: number,
+		interpolation: Interpolation = Interpolations.pow2out
+	): Action {
+		return new MoveToRounded(target, x, y, seconds, interpolation);
+	}
+
+	/** Like `.moveTo()`, but only changes the Y position. */
+	static moveToY(
+		target: Target,
+		y: number,
+		seconds: number,
+		interpolation: Interpolation = Interpolations.pow2out
+	): Action {
+		return new MoveToY(target, y, seconds, interpolation);
 	}
 
 	static fadeTo(
@@ -89,6 +113,16 @@ export default class Actions {
 		interpolation: Interpolation = Interpolations.pow2out
 	): Action {
 		return new ScaleTo(target, x, y, seconds, interpolation);
+	}
+
+	static resizeFromCenterTo(
+		target: Target,
+		w: number,
+		h: number,
+		seconds: number,
+		interpolation: Interpolation = Interpolations.pow2out
+	): Action {
+		return new ResizeFromCenterTo(target, w, h, seconds, interpolation);
 	}
 
 	static rotateTo(
